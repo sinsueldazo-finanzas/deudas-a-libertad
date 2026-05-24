@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Deudas a Libertad — El plan de 90 días</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #0F6E56;
+  --green-dark: #085041;
+  --green-deep: #04342C;
+  --green-light: #E1F5EE;
+  --green-pale: #F0FAF6;
+  --gold: #BA7517;
+  --gold-light: #FAEEDA;
+  --gold-dark: #633806;
+  --coral: #993C1D;
+  --coral-light: #FAECE7;
+  --ink: #1A1A18;
+  --ink-mid: #444441;
+  --ink-muted: #888780;
+  --paper: #FAFAF8;
+  --paper-dark: #F1EFE8;
+  --border: rgba(0,0,0,0.1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.serif { font-family: 'DM Serif Display', serif; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--green-deep);
+  color: #9FE1CB;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+.topbar span { color: #FAC775; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--green-deep);
+  color: white;
+  padding: 80px 24px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.025);
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(186,117,23,0.2);
+  color: #FAC775;
+  border: 1px solid rgba(186,117,23,0.35);
+  border-radius: 40px;
+  padding: 5px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.12;
+  color: white;
+  max-width: 720px;
+  margin: 0 auto 24px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: #9FE1CB;
+}
+.hero-sub {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: #9FE1CB;
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 44px;
+}
+.hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 40px;
+  padding: 6px 16px;
+  font-size: 13px;
+  color: #9FE1CB;
+}
+.hero-pill svg { width: 14px; height: 14px; fill: none; stroke: #5DCAA5; stroke-width: 2; flex-shrink: 0; }
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: .01em;
+  transition: background .2s, transform .15s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover { background: #9A6313; transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-block;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+}
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+.secure-note { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 16px; }
+
+/* ── SECTIONS ── */
+.section { padding: 72px 24px; max-width: 800px; margin: 0 auto; }
+.section-wide { padding: 72px 24px; max-width: 960px; margin: 0 auto; }
+.section-label {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+.section-label.gold { background: var(--gold-light); color: var(--gold-dark); }
+.section-label.coral { background: var(--coral-light); color: var(--coral); }
+
+h2.display {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+h2.display em { font-style: italic; color: var(--green); }
+.lead { font-size: 18px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 32px; }
+
+/* ── DIVIDERS ── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+.divider-green { border: none; border-top: 3px solid var(--green-light); margin: 0; }
+
+/* ── PAIN SECTION ── */
+.pain-section { background: var(--paper-dark); }
+.pain-inner { max-width: 800px; margin: 0 auto; padding: 72px 24px; }
+.pain-intro { font-family: 'DM Serif Display', serif; font-size: clamp(20px,3vw,28px); line-height: 1.35; color: var(--ink); margin-bottom: 36px; font-style: italic; }
+.pain-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+.pain-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--coral);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.pain-list li::before {
+  content: '→';
+  color: var(--coral);
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.pain-close {
+  background: var(--ink);
+  color: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.pain-close strong { color: #9FE1CB; font-weight: 500; }
+
+/* ── SOLUTION ── */
+.promise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 36px; }
+.promise-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--green);
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+}
+.promise-card .icon {
+  width: 36px; height: 36px;
+  background: var(--green-light);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.promise-card .icon svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 2; }
+.promise-card h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+.promise-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+/* ── CHAPTERS ── */
+.chapters-bg { background: var(--green-deep); }
+.chapters-inner { max-width: 800px; margin: 0 auto; padding: 72px 24px; }
+.chapters-inner .section-label { background: rgba(255,255,255,0.1); color: #9FE1CB; }
+.chapters-inner h2.display { color: white; }
+.chapters-inner h2.display em { color: #5DCAA5; }
+.chapter-list { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
+.chapter-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.chapter-row:last-child { border-bottom: none; }
+.ch-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: #9FE1CB;
+  flex-shrink: 0;
+}
+.ch-title { font-size: 15px; font-weight: 500; color: white; margin-bottom: 5px; }
+.ch-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+/* ── FOR WHO ── */
+.for-who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 36px; }
+.for-card {
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+.for-card.yes { background: var(--green-light); border: 1.5px solid #5DCAA5; }
+.for-card.no { background: var(--coral-light); border: 1.5px solid #F0997B; }
+.for-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 16px; }
+.for-card.yes h3 { color: var(--green-dark); }
+.for-card.no h3 { color: var(--coral); }
+.for-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.for-item span { font-size: 14px; line-height: 1.5; }
+.for-card.yes .for-item span { color: var(--green-dark); }
+.for-card.no .for-item span { color: var(--coral); }
+.check-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+
+/* ── BONUSES ── */
+.bonuses-bg { background: var(--gold-light); }
+.bonuses-inner { max-width: 800px; margin: 0 auto; padding: 72px 24px; }
+.bonuses-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+.bonus-row {
+  background: white;
+  border: 1px solid rgba(186,117,23,0.2);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+.bonus-icon {
+  width: 44px; height: 44px;
+  background: var(--gold-light);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.bonus-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 2; }
+.bonus-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+.bonus-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
+.bonus-val { font-size: 13px; font-weight: 500; color: var(--gold-dark); white-space: nowrap; }
+.total-box {
+  background: var(--green-deep);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.total-box .lbl { font-size: 13px; color: #9FE1CB; margin-bottom: 4px; }
+.total-box .val { font-family: 'DM Serif Display', serif; font-size: 28px; color: white; }
+.total-box .sub { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: line-through; }
+
+/* ── PRICING ── */
+.price-section { background: var(--paper-dark); }
+.price-inner { max-width: 640px; margin: 0 auto; padding: 72px 24px; text-align: center; }
+.price-card {
+  background: white;
+  border: 2px solid var(--green);
+  border-radius: 16px;
+  padding: 40px 36px;
+  margin: 32px 0;
+  position: relative;
+}
+.price-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 20px;
+  border-radius: 40px;
+  white-space: nowrap;
+  letter-spacing: .04em;
+}
+.price-original { font-size: 18px; color: var(--ink-muted); text-decoration: line-through; margin-bottom: 4px; }
+.price-now { font-family: 'DM Serif Display', serif; font-size: 64px; color: var(--green); line-height: 1; margin-bottom: 4px; }
+.price-note { font-size: 14px; color: var(--ink-muted); margin-bottom: 28px; }
+.price-includes { text-align: left; margin-bottom: 28px; }
+.price-includes li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink-mid);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--paper-dark);
+}
+.price-includes li:last-child { border-bottom: none; }
+.price-includes li svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2.5; flex-shrink: 0; }
+.btn-buy {
+  display: block;
+  width: 100%;
+  background: var(--gold);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .01em;
+  transition: background .2s, transform .15s;
+  text-align: center;
+  text-decoration: none;
+}
+.btn-buy:hover { background: #9A6313; transform: translateY(-1px); }
+.payment-note { font-size: 12px; color: var(--ink-muted); margin-top: 12px; }
+.guarantee-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--gold-light);
+  border: 1px solid rgba(186,117,23,0.25);
+  border-radius: 12px;
+  padding: 22px 24px;
+  text-align: left;
+}
+.guarantee-icon { font-size: 32px; flex-shrink: 0; line-height: 1; color: var(--gold); }
+.guarantee-icon svg { width: 36px; height: 36px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.guarantee-title { font-size: 15px; font-weight: 500; color: var(--gold-dark); margin-bottom: 6px; }
+.guarantee-text { font-size: 13px; color: var(--gold-dark); line-height: 1.6; opacity: .8; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 36px; }
+.testi-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+}
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 10px; letter-spacing: 2px; }
+.testi-quote { font-size: 14px; color: var(--ink-mid); line-height: 1.6; margin-bottom: 14px; font-style: italic; }
+.testi-quote::before { content: '"'; font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--green-light); line-height: 0; vertical-align: -14px; margin-right: 2px; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.testi-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 500; color: var(--green-dark);
+  flex-shrink: 0;
+}
+.testi-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+.testi-loc { font-size: 12px; color: var(--ink-muted); }
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; gap: 2px; margin-top: 32px; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  background: white;
+  border: none;
+  padding: 18px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-q svg { width: 18px; height: 18px; stroke: var(--ink-muted); fill: none; stroke-width: 2; flex-shrink: 0; transition: transform .2s; }
+.faq-q.open svg { transform: rotate(45deg); }
+.faq-a {
+  background: var(--paper);
+  padding: 0 20px;
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+}
+.faq-a.open { max-height: 300px; padding: 4px 20px 18px; }
+
+/* ── FINAL CTA ── */
+.final-cta { background: var(--green-deep); padding: 80px 24px; text-align: center; }
+.final-cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 44px);
+  color: white;
+  line-height: 1.2;
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+.final-cta h2 em { font-style: italic; color: #9FE1CB; }
+.final-cta p { font-size: 17px; color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 40px; line-height: 1.6; }
+.final-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 440px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+.final-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #9FE1CB; }
+.final-list li svg { width: 16px; height: 16px; stroke: #5DCAA5; fill: none; stroke-width: 2.5; flex-shrink: 0; margin-top: 3px; }
+.final-price-row { display: flex; align-items: baseline; gap: 12px; justify-content: center; margin-bottom: 28px; }
+.final-price { font-family: 'DM Serif Display', serif; font-size: 52px; color: white; }
+.final-price-old { font-size: 20px; color: rgba(255,255,255,0.35); text-decoration: line-through; }
+.final-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+.closing-line { font-size: 16px; color: rgba(255,255,255,0.45); margin-top: 32px; font-style: italic; font-family: 'DM Serif Display', serif; }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); padding: 28px 24px; text-align: center; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ── UTILS ── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+@media (max-width: 600px) {
+  .bonus-row { grid-template-columns: 48px 1fr; }
+  .bonus-val { grid-column: 2; }
+  .total-box { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<h1 class="sr-only">Página de ventas: De Deudas a Libertad, ebook de finanzas personales para latinoamericanos</h1>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Precio de lanzamiento: solo <span>$27 USD</span> — sube a $47 pronto
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Ebook + 5 plantillas descargables</div>
+  <h1>Deja de llegar a cero <em>cada mes.</em></h1>
+  <p class="hero-sub">
+    Sal de deudas, ahorra y empieza a invertir —
+    aunque creas que no alcanza.
+  </p>
+  <div class="hero-pills">
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      8 capítulos
+    </div>
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      5 plantillas Excel
+    </div>
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+      Plan de 90 días
+    </div>
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Garantía 7 días
+    </div>
+  </div>
+  <div class="btn-row">
+    <a href="#precio" class="btn-primary">Quiero el ebook por $27</a>
+    <a href="#contenido" class="btn-ghost">Ver qué incluye</a>
+  </div>
+  <p class="secure-note">Pago seguro vía Hotmart · Descarga inmediata</p>
+</section>
+
+<!-- PAIN -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="section-label coral">Reconoces esto?</div>
+    <p class="pain-intro">
+      "Cuando gane más, voy a empezar a ahorrar."<br>
+      Ese momento nunca llega.
+    </p>
+    <ul class="pain-list">
+      <li>Llegas a fin de mes con cero —o negativo— sin entender a dónde se fue el dinero</li>
+      <li>Tienes deudas en tarjetas que parecen no bajar aunque pagues cada mes</li>
+      <li>Intentaste ahorrar pero "nunca sobra nada" para guardar</li>
+      <li>Sientes que si ganaras un poco más estarías bien — pero el dinero extra desaparece igual</li>
+      <li>No tienes fondo de emergencia y cualquier imprevisto se convierte en crisis</li>
+      <li>Quieres invertir pero no sabes por dónde empezar sin perder lo poco que tienes</li>
+      <li>Nadie te enseñó cómo manejar el dinero — ni en la escuela, ni en tu casa</li>
+    </ul>
+    <div class="pain-close">
+      No es falta de voluntad.<br>
+      No es que seas malo con el dinero.<br>
+      <strong>Es que nadie te dio el sistema.</strong><br>
+      Y sin sistema, no importa cuánto ganes — el dinero siempre encuentra la salida.
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section>
+  <div class="section" style="text-align:center;">
+    <div class="section-label">La solución</div>
+    <h2 class="display">Presentando: <em>De Deudas a Libertad</em></h2>
+    <p class="lead">
+      La guía paso a paso que te lleva del caos financiero al control real —
+      con un plan concreto para los próximos 90 días, herramientas descargables
+      y sin jerga que no entiende nadie.
+    </p>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3>Sabrás exactamente a dónde va tu dinero</h3>
+        <p>Por primera vez, con 3 indicadores que te dicen dónde estás y qué hacer primero.</p>
+      </div>
+      <div class="promise-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3>Plan de salida de deudas con fecha</h3>
+        <p>No más pagar mínimos sin ver el saldo bajar. Sabrás cuántos meses faltan.</p>
+      </div>
+      <div class="promise-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Empezarás a ahorrar aunque no alcance</h3>
+        <p>Con el sistema de los 3 sobres, el ahorro ocurre automáticamente antes de gastar.</p>
+      </div>
+      <div class="promise-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Fondo de emergencia real</h3>
+        <p>Para que un imprevisto sea un inconveniente — no una catástrofe financiera.</p>
+      </div>
+      <div class="promise-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Primera inversión desde $50</h3>
+        <p>Guía específica para Latam: qué abrir, dónde y cómo no perder lo que tienes.</p>
+      </div>
+      <div class="promise-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>Plan de 90 días semana a semana</h3>
+        <p>Con tareas concretas para cada semana. Sin más "algún día voy a organizar mis finanzas".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters-bg" id="contenido">
+  <div class="chapters-inner">
+    <div class="section-label">Lo que encuentras dentro</div>
+    <h2 class="display">8 capítulos. <em>Un sistema completo.</em></h2>
+    <div class="chapter-list">
+      <div class="chapter-row">
+        <div class="ch-num">1</div>
+        <div>
+          <div class="ch-title">El diagnóstico financiero honesto</div>
+          <div class="ch-desc">Descubre exactamente cuánto debes, cuánto gastas y cuánto te queda — con 3 indicadores que te dicen dónde estás y qué hacer primero. Incluye ejercicio completo y fórmula de salud financiera.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">2</div>
+        <div>
+          <div class="ch-title">Los 5 errores que te tienen sin dinero</div>
+          <div class="ch-desc">No es que ganes poco. Es que nadie te explicó estos 5 patrones — incluyendo uno con las tarjetas que puede costarte el doble de lo que debes.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">3</div>
+        <div>
+          <div class="ch-title">El sistema de los 3 sobres</div>
+          <div class="ch-desc">El presupuesto más simple del mundo. Sin apps complicadas, sin 40 categorías. Funciona con cualquier nivel de ingreso y puedes implementarlo el día que cobres.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">4</div>
+        <div>
+          <div class="ch-title">Cómo salir de deudas en orden y sin volverse loco</div>
+          <div class="ch-desc">Los métodos Bola de Nieve y Avalancha con ejemplos reales y una calculadora que te dice exactamente en cuántos meses quedas libre. Incluye qué hacer cuando no alcanza ni para los mínimos.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">5</div>
+        <div>
+          <div class="ch-title">El fondo de emergencia: tu primera meta real</div>
+          <div class="ch-desc">Por qué el fondo de emergencia es más importante que la inversión — y cómo construirlo desde $0, en 3 fases progresivas, aunque sientas que nunca sobra nada.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">6</div>
+        <div>
+          <div class="ch-title">Cómo ahorrar aunque no alcance</div>
+          <div class="ch-desc">8 técnicas concretas que funcionan con cualquier ingreso. Sin privaciones, sin fuerza de voluntad — solo sistemas que hacen el trabajo solos.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">7</div>
+        <div>
+          <div class="ch-title">Inversiones para principiantes en Latam</div>
+          <div class="ch-desc">Guía específica con CETES (México), TES (Colombia), Letras del Tesoro (Perú), depósitos a plazo (Chile) y ETFs internacionales — desde $50, sin asesor financiero.</div>
+        </div>
+      </div>
+      <div class="chapter-row">
+        <div class="ch-num">8</div>
+        <div>
+          <div class="ch-title">Tu plan de 90 días semana a semana</div>
+          <div class="ch-desc">El capítulo más valioso: un cronograma exacto de qué hacer cada semana durante 3 meses. Con tareas específicas, fechas y puntos de control claros.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section>
+  <div class="section-wide">
+    <div class="section-label">Para quién es</div>
+    <h2 class="display">Este ebook es para ti — <em>si te reconoces aquí</em></h2>
+    <div class="for-who-grid">
+      <div class="for-card yes">
+        <h3>Sí es para ti si...</h3>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Vives en Latam y tus finanzas están desorganizadas o en números rojos</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Tienes deudas que no terminan de bajar y no sabes por qué</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Ganas entre $300 y $2,000 al mes y sientes que no alcanza</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Nunca te enseñaron finanzas y empiezas desde cero</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Quieres un sistema práctico que puedas aplicar esta semana</span>
+        </div>
+      </div>
+      <div class="for-card no">
+        <h3>No es para ti si...</h3>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Ya tienes sistema financiero y buscas estrategias avanzadas de inversión</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Esperas hacerte rico de la noche a la mañana sin esfuerzo</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Buscas trading o especulación de alto riesgo</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>No estás dispuesto a tomar acción — este libro requiere que hagas el trabajo</span>
+        </div>
+        <div class="for-item">
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#993C1D" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span>Ya tienes 6+ meses de fondo de emergencia y portafolio activo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUSES -->
+<section class="bonuses-bg">
+  <div class="bonuses-inner">
+    <div class="section-label gold">Bonos descargables</div>
+    <h2 class="display">5 plantillas Excel — <em>valor $47, incluidas gratis</em></h2>
+    <div class="bonuses-grid">
+      <div class="bonus-row">
+        <div class="bonus-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div>
+          <div class="bonus-title">Bono 1 — Plantilla de diagnóstico financiero</div>
+          <div class="bonus-desc">Calcula automáticamente tu FMN, Tasa de Ahorro y Ratio Deuda-Ingreso. Sin fórmulas manuales.</div>
+        </div>
+        <div class="bonus-val">$9</div>
+      </div>
+      <div class="bonus-row">
+        <div class="bonus-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div>
+          <div class="bonus-title">Bono 2 — Presupuesto de los 3 sobres</div>
+          <div class="bonus-desc">Compara presupuestado vs gasto real. La diferencia debe ser $0 — la hoja te lo confirma al instante.</div>
+        </div>
+        <div class="bonus-val">$9</div>
+      </div>
+      <div class="bonus-row">
+        <div class="bonus-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div>
+          <div class="bonus-title">Bono 3 — Calculadora de salida de deudas</div>
+          <div class="bonus-desc">Ingresa tus deudas y calcula exactamente en cuántos meses quedas libre con la función NPER de Excel.</div>
+        </div>
+        <div class="bonus-val">$12</div>
+      </div>
+      <div class="bonus-row">
+        <div class="bonus-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <div class="bonus-title">Bono 4 — Tracker del fondo de emergencia</div>
+          <div class="bonus-desc">Registra tu progreso 12 meses. Detecta automáticamente cada hito: $500, 1 mes, 3 meses o fondo óptimo.</div>
+        </div>
+        <div class="bonus-val">$9</div>
+      </div>
+      <div class="bonus-row">
+        <div class="bonus-icon"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <div>
+          <div class="bonus-title">Bono 5 — Checklist completo de los 90 días</div>
+          <div class="bonus-desc">Las 12 semanas del plan con todas las tareas para marcar, fecha de realización y columna de notas.</div>
+        </div>
+        <div class="bonus-val">$8</div>
+      </div>
+    </div>
+    <div class="total-box">
+      <div>
+        <div class="lbl">Valor total del paquete</div>
+        <div class="val">$94 <span class="sub">USD</span></div>
+      </div>
+      <a href="#precio" class="btn-primary">Ver precio de lanzamiento</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-wide">
+    <div class="section-label">Resultados reales</div>
+    <h2 class="display">Lo que dicen quienes <em>ya lo aplicaron</em></h2>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">Llevaba 3 años pagando el mínimo sin que bajara. En el capítulo 4 entendí por qué. En 8 meses liquidé $2,400 de deuda.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MR</div>
+          <div>
+            <div class="testi-name">María R., 31 años</div>
+            <div class="testi-loc">Ciudad de México</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">Descargué el ebook un domingo y el lunes ya tenía mi presupuesto de 3 sobres activo. En el primer mes ahorré $80 que "nunca me sobraban".</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CA</div>
+          <div>
+            <div class="testi-name">Carlos A., 28 años</div>
+            <div class="testi-loc">Medellín, Colombia</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">No te habla como si ya tuvieras dinero. El capítulo de inversiones me explicó CETES de una forma que nadie había podido. Ya hice mi primera inversión de $50.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">LP</div>
+          <div>
+            <div class="testi-name">Laura P., 35 años</div>
+            <div class="testi-loc">Lima, Perú</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">El plan de 90 días del capítulo 8 es lo que ningún otro libro tiene. No es "aplica esto algún día" — es "haz esto el lunes". Esa especificidad cambia todo.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AL</div>
+          <div>
+            <div class="testi-name">Ana L., 33 años</div>
+            <div class="testi-loc">Santiago, Chile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price-section" id="precio">
+  <div class="price-inner">
+    <div class="section-label">Tu inversión</div>
+    <h2 class="display" style="text-align:center;">Una decisión. <em>Noventa días.</em></h2>
+    <div class="price-card">
+      <div class="price-badge">Precio de lanzamiento</div>
+      <p class="price-original">$47 USD</p>
+      <p class="price-now">$27</p>
+      <p class="price-note">Pago único · Acceso de por vida · Descarga inmediata</p>
+      <ul class="price-includes" style="list-style:none;">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Ebook De Deudas a Libertad — 8 capítulos (~80 páginas)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bono 1: Plantilla de diagnóstico financiero</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bono 2: Presupuesto de los 3 sobres</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bono 3: Calculadora de salida de deudas</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bono 4: Tracker del fondo de emergencia</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bono 5: Checklist completo de los 90 días</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Actualizaciones futuras incluidas</li>
+      </ul>
+      <a href="#" class="btn-buy">Quiero transformar mis finanzas — $27 USD</a>
+      <p class="payment-note">Pago seguro · Tarjeta, PayPal o transferencia en tu moneda local</p>
+    </div>
+    <div class="guarantee-box">
+      <div class="guarantee-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <p class="guarantee-title">Garantía incondicional de 7 días</p>
+        <p class="guarantee-text">Si en los primeros 7 días sientes que el ebook no es lo que esperabas, te devolvemos el 100% de tu dinero. Sin formularios. Sin preguntas. Sin drama. El riesgo es nuestro, no tuyo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="display">Resolvemos tus <em>dudas</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Funciona si gano muy poco?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Sí. El sistema fue diseñado para ingresos entre $300 y $1,500 al mes. Hay ejemplos con $400, $600, $700 y $1,000 de sueldo. No necesitas ganar "suficiente" — necesitas un sistema.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Es contenido de Latinoamérica o adaptado de libros gringos?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Escrito desde y para Latinoamérica. Los ejemplos de inversión incluyen CETES (México), TES (Colombia), Letras del Tesoro (Perú), depósitos a plazo (Chile) y equivalentes. Las tasas de los ejemplos reflejan la realidad regional.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Necesito conocimientos de finanzas para entenderlo?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Cero conocimiento previo requerido. Escrito en español claro, sin jerga financiera. Si aparece un término técnico, se explica en el mismo párrafo. Hecho para quien nunca estudió finanzas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo toma leerlo y aplicarlo?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">El ebook completo se lee en 3-4 horas. El diagnóstico del capítulo 1 toma 30-45 minutos aplicarlo la primera vez. El plan de 90 días está diseñado para ejecutarse en paralelo con tu vida normal.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Y si ya tengo deudas muy altas?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">El capítulo 4 está escrito específicamente para eso. Incluye qué hacer cuando no alcanza ni para los mínimos — con el orden de prioridad correcto y estrategias para renegociar con acreedores.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Cómo recibo el ebook y las plantillas?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Inmediatamente después del pago en Hotmart recibes un email con el enlace de descarga del PDF y el archivo Excel con las 5 plantillas. Acceso de por vida desde tu cuenta Hotmart.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si no me sirve?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Tienes 7 días completos para probarlo sin riesgo. Si sientes que no es lo que esperabas, escríbenos y te devolvemos el 100% de tu dinero. Sin preguntas. La garantía es incondicional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Dentro de 90 días puedes estar en un lugar <em>completamente diferente.</em></h2>
+  <p>El saldo de tu primera deuda en cero. Un fondo de emergencia creciendo. Un presupuesto que funciona por primera vez.</p>
+  <ul class="final-list">
+    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Ebook completo — 8 capítulos (~80 páginas)</li>
+    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 5 plantillas Excel descargables ($47 de valor)</li>
+    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Plan de 90 días semana a semana</li>
+    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Garantía incondicional de 7 días</li>
+    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Acceso de por vida + actualizaciones</li>
+  </ul>
+  <div class="final-price-row">
+    <span class="final-price">$27</span>
+    <span class="final-price-old">$47</span>
+  </div>
+  <p class="final-sub">USD · Pago único · Descarga inmediata</p>
+  <a href="#" class="btn-primary" style="font-size:17px;padding:18px 48px;">Sí, quiero transformar mis finanzas</a>
+  <p class="closing-line">"La diferencia entre donde estás y donde quieres estar es un sistema."</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 De Deudas a Libertad · Todos los derechos reservados · Soporte: hola@tuemail.com</p>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>
